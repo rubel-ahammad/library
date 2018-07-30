@@ -1,11 +1,30 @@
-apply plugin: 'java-library'
+plugins {
+	id 'java-library'
+    id 'maven-publish'
+}
+
+version = '1.1'
 
 repositories {
     jcenter()
 }
 
-dependencies {
-    api 'org.apache.commons:commons-math3:3.6.1'
-    implementation 'com.google.guava:guava:23.0'
-    testImplementation 'junit:junit:4.12'
+publishing {
+    publications {
+        viadeskLibrary(MavenPublication) {
+			groupId = 'org.waxtool'
+			artifactId = 'library'
+			
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "sftp://192.168.255.11:22/var/www/html/maven2"
+	        credentials {
+	            username = 'administrator'
+	            password = 'viadesk'
+	        }
+        }
+    }
 }
