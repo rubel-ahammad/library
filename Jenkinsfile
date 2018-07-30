@@ -1,9 +1,13 @@
 pipeline {
     agent any
+    tools {
+        gradle "GRADLE_LATEST"
+    }
     stages {
         stage('build') {
             steps {
-                sh './gradlew clean build'
+                sh 'gradle --version'
+                //sh './gradlew clean build'
                 echo "The build stage passed..."
             }
         }
