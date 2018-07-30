@@ -22,8 +22,8 @@ publishing {
         maven {
             url "sftp://192.168.255.11:22/var/www/html/maven2"
 	        credentials {
-	            username = 'administrator'
-	            password = 'viadesk'
+	            username "$mavenUser"
+	            password "$mavenPassword"
 	        }
         }
     }
