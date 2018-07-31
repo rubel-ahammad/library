@@ -4,10 +4,14 @@ pipeline {
 		gradle 'GRADLE_LATEST'
 	}
 	stages {
-	    stage('build') {
+	    stage('Build') {
 	        steps {
 	            sh './gradlew clean build'
-	            echo "The build stage passed..."
+	        }
+	    }
+	    stage('Test') {
+	        steps {
+	            sh './gradlew test'
 	        }
 	    }
 	}
