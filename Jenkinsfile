@@ -14,6 +14,11 @@ pipeline {
 	            sh './gradlew test'
 	        }
 	    }
+	    stage('Publish') {
+	        steps {
+	            sh './gradlew publish'
+	        }
+	    }
 	}
 	post {
 	    failure {
