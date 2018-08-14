@@ -3,6 +3,9 @@ plugins {
     id 'maven-publish'
 }
 
+groupId = 'com.example'
+version = '1.0-SNAPSHOT'
+			
 repositories {
     jcenter()
 }
@@ -14,18 +17,15 @@ dependencies {
 publishing {
     publications {
         viadeskLibrary(MavenPublication) {
-			groupId = 'org.waxtool'
-			artifactId = 'library'
-			
             from components.java
         }
     }
     repositories {
         maven {
-            url "$mavenRepositoryUrl"
+            url "$viadeskRepositoryUrl"
 	        credentials {
-	            username "$mavenRepositoryUser"
-	            password "$mavenRepositoryPassword"
+	            username "$viadeskRepositoryUser"
+	            password "$viadeskRepositoryPassword"
 	        }
         }
     }
