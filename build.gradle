@@ -11,21 +11,25 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'sources'
+}
+
 publishing {
     publications {
         viadeskLibrary(MavenPublication) {
-			groupId = 'org.waxtool'
-			artifactId = 'library'
-			
             from components.java
+            artifact sourcesJar
         }
     }
     repositories {
         maven {
-            url "$mavenRepositoryUrl"
+            url "$viadeskRepositoryUrl"
 	        credentials {
-	            username "$mavenRepositoryUser"
-	            password "$mavenRepositoryPassword"
+	            username "$viadeskRepositoryUser"
+	            password "$viadeskRepositoryPassword"
 	        }
         }
     }
