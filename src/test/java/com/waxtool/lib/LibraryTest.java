@@ -6,6 +6,9 @@ import org.junit.Test;
 
 import com.waxtool.lib.Library;
 
+/*
+ * Comment
+ */
 public class LibraryTest {
 	@Test
 	public void testSomeLibraryMethod() {
